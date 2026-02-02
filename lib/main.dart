@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:otpbox_autofill/otpbox_autofill.dart';
+import 'package:otpbox_autofill/src/autofill_otpbox.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -10,39 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: OtpTestScreen(),
-    );
-  }
-}
-
-class OtpTestScreen extends StatefulWidget {
-  const OtpTestScreen({super.key});
-
-  @override
-  State<OtpTestScreen> createState() => _OtpTestScreenState();
-}
-
-class _OtpTestScreenState extends State<OtpTestScreen> {
-  String otp = '';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("OTP Autofill")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OtpBoxAutofill(
-              onCompleted: (v) => setState(() => otp = v),
-            ),
-            const SizedBox(height: 20),
-            Text("OTP: $otp"),
-          ],
+    return MaterialApp(
+        title: 'AutoFill_OtpBox',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-      ),
+        home: AutoFillOtpBox()
     );
   }
 }
