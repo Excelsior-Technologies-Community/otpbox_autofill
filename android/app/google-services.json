@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "531670084509",
+    "project_id": "otpboxautofill",
+    "storage_bucket": "otpboxautofill.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531670084509:android:8f792e8f5edf24cd2fdd74",
+        "android_client_info": {
+          "package_name": "com.example.otpbox_autofill"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtLbXXaz81re3qbff9TeuYP0ttrLP4rus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
