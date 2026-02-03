@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otpbox_autofill/src/autofill_otpbox.dart';
-
+import 'otpbox_autofill.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'AutoFill_OtpBox',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
-        home: AutoFillOtpBox()
+      debugShowCheckedModeBanner: false,
+      home: const AutoFillOtpBox(),
     );
   }
 }
