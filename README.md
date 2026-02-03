@@ -1,8 +1,9 @@
-#OTPBox Autofill
+# OTPBox Autofill
 
 OTPBox Autofill is a reusable Flutter widget that demonstrates OTP input boxes with simulated SMS autofill.
 
 It helps you avoid writing repetitive OTP UI logic and shows how OTP autofill works using a service layer.
+
 ---
 
 ## Feature Preview
