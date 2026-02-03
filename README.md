@@ -1,25 +1,24 @@
-# OTPBox Autofill
+#OTPBox Autofill
 
-OTPBox Autofill is a reusable Flutter widget that provides clean OTP input boxes with optional SMS autofill support.
+OTPBox Autofill is a reusable Flutter widget that demonstrates OTP input boxes with simulated SMS autofill.
 
-It helps you avoid writing repetitive OTP UI logic and makes it easy to capture and validate OTP codes.
-
+It helps you avoid writing repetitive OTP UI logic and shows how OTP autofill works using a service layer.
 ---
 
 ## Feature Preview
 
-- Multiple OTP input boxes  
-- Auto move to next box  
-- Backspace navigation  
-- Paste full OTP  
-- Manual OTP input  
-- SMS OTP autofill (Android / iOS)  
-- Simple Material UI  
+- Multiple OTP input boxes
+- Auto move to next box
+- Backspace navigation
+- Manual OTP input
+- Simulated SMS OTP autofill
+- Fake SMS preview banner
+- Simple Material UI
 
 ---
 
 ## Preview
-// Upload a screen recording or screenshot here
+https://github.com/user-attachments/assets/67424f98-859e-41d4-bdf1-5807856904d9
 
 ---
 
@@ -31,7 +30,7 @@ Add this to your `pubspec.yaml`:
 dependencies:
   otpbox_autofill:
     git:
-      url: https://github.com/Excelsior-Technologies-Communitye/otpbox_autofill.git
+      url: https://github.com/Excelsior-Technologies-Community/otpbox_autofill.git
 ```
 then run:
 ```
@@ -46,7 +45,9 @@ otpbox_autofill/
 │   ├─ otpbox_autofill.dart          # Main library file
 │   │
 │   └─ src/
-│       └─ otpbox_autofill_widget.dart   # OtpBoxAutofill widget
+│       ├─ autofill_otpbox.dart      # AutoFillOtpBox screen
+│       ├─ sms_autofill.dart         # Simulated SMS service
+│       └─ otpbox_autofill_widget.dart   # Single OTP box widget
 │
 ├─ example/
 │   └─ main.dart                     # Example usage
@@ -54,6 +55,7 @@ otpbox_autofill/
 ├─ pubspec.yaml
 ├─ README.md
 └─ LICENSE
+
 ```
 -----------------------------
 ## Usage
@@ -61,52 +63,35 @@ otpbox_autofill/
 import 'package:flutter/material.dart';
 import 'package:otpbox_autofill/otpbox_autofill.dart';
 
-class OtpScreen extends StatefulWidget {
+class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
 
   @override
-  State<OtpScreen> createState() => _OtpScreenState();
-}
-
-class _OtpScreenState extends State<OtpScreen> {
-  String otp = "";
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OtpBoxAutofill(
-              length: 6,
-              onCompleted: (value) {
-                setState(() {
-                  otp = value;
-                });
-              },
-            ),
-
-            const SizedBox(height: 20),
-
-            Text("OTP: $otp"),
-          ],
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AutoFillOtpBox(),
     );
   }
 }
+
 
 ```
 --------------------------------
 
 ## OtpBoxAutofill Properties
 
-| Property        | Type               | Required | Default | Description |
-|-----------------|--------------------|----------|---------|-------------|
-| `length`        | `int`              | No       | `6`     | Number of OTP digits |
-| `boxSize`       | `double`           | No       | `50`    | Width & height of each OTP box |
-| `onCompleted`   | `Function(String)` | Yes      | —       | Callback when OTP is fully entered |
+| Property    | Type | Required | Default | Description                            |
+| ----------- | ---- | -------- | ------- | -------------------------------------- |
+| `otpLength` | int  | No       | `6`     | Number of OTP digits (OTP boxes count) |
+
+--------------------------------
+# How SMS Autofill Works
+```
+This package uses a simulated SMS service:
+
+SmsAutoFillService.startListening(...)
+```
 --------------------------------
 ## MIT License
 ```
@@ -125,8 +110,7 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
-OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY...
+
 ```
